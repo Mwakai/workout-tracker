@@ -56,8 +56,17 @@ class User extends Authenticatable
     {
         return [];
     }
-    // public function workouts()
-    // {
-    //     return $this->hasMany(Workout::class);
-    // }
+    public function workouts()
+    {
+        return $this->hasMany(Workout::class);
+    }
+
+    public function scheduledWorkouts()
+    {
+        return $this->hasMany(ScheduledWorkout::class);
+    }
+
+    public function workoutLog() {
+        return $this->hasMany(WorkoutLog::class);
+    }
 }
