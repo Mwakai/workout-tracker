@@ -1,13 +1,31 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ExerciseController;
 
-Route::group([
-    'middleware' => 'api',
-    'prefix' => 'auth'
-], function ($router) {
-    Route::post('login', 'AuthController@login');
-    Route::post('logout', 'AuthController@logout');
-    Route::post('refresh', 'AuthController@refresh');
-    Route::post('me', 'AuthController@me');
+Route::group(['middleware' => 'api', 'prefix' => 'auth'], function () {
+    Route::post('register', [AuthController::class, 'register']);
+    Route::post('login', [AuthController::class, 'login']);
+});
+
+Route::group(['middleware' => 'auth:api'], function () {
+    // Auth
+    Route::prefix('auth')->group(function () {
+        Route::post('logout', [AuthController::class, 'logout']); 
+        Route::post('refresh', [AuthController::class, 'refresh']);
+        Route::get('me', [AuthController::class, 'me']); 
+    });
+
+    // Exercises routes
+    Route::prefix('exercises')->group(function () {
+        Route::get('/', [ExerciseController::class, 'index']);
+        Route::get('{id}', [ExerciseController::class, 'show']);
+    });
+
+    // Workouts
+    Route::prefix('workouts')->group(function () {
+        Route::get('/', [WorkoutController::class, 'index']);
+    });
+
 });
