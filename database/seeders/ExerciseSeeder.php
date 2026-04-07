@@ -108,6 +108,6 @@ class ExerciseSeeder extends Seeder
         foreach ($exercises as $exercise) {
             \App\Models\Exercise::create($exercise);
         }
-        DB::table('exercises')->insert($exercises);
+        
     }
 }
