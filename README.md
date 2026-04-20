@@ -1,4 +1,4 @@
-# 🚀 Workout Tracker
+# 🚀 [Workout Tracker](https://roadmap.sh/projects/fitness-workout-tracker)
 
 A RESTful API built with Laravel, secured with **JWT (JSON Web Token)** authentication using the `tymon/jwt-auth` package.
 
