@@ -263,4 +263,4 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 **Your Name**
 
 - GitHub: [Mwakai](https://github.com/Mwakai)
-- Email: mwakaimwambala@gmail.com@gmail.com
+- Email: mwakaimwambala@gmail.com
